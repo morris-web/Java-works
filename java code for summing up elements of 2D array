@@ -1,0 +1,20 @@
+// Java code to sum up all the elements of a 2D array except the elements at the positions (0,0), (1,1), (2,3) and (3,2)
+public class JavaArray1 {
+    public static void main (String[] args){
+        // Initialize the 2D array K with the given values
+        int K[][] = {{4,2,5,7},{8,3,10,8},{12,5,4,5},{6,3,7,14}};
+
+        // Iterate over each row of K
+        for (int i=0;i<K.length;i++){
+             int sum =0; // Initialize the sum to 0 for each row
+
+            // Iterate over each element in the current row
+            for(int j=0;j<K[i].length;j++){
+                // Exclude the given values from the sum
+                if(!((i==0&&j==0)||(i==1&&j==1)||(i==2&&j==3)||(i==3&&j==2))){
+                    sum += K[i][j]; // Add the current element to the sum
+                }
+            }
+            System.out.println("Sum of Row "+ (i+1)+": "+sum); // Output the sum for the current row
+        }
+    }
