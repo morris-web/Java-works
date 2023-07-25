@@ -1,0 +1,20 @@
+// Java Code to find the Difference between two 2D arrays
+public class JavaArray3{
+    public static void main(String[] args){
+        int Q[][] = {{2,0,3,5},{5,0,7,5},{8,1,0,1},{3,0,4,1}};
+        int K[][] = {{4,2,5,7},{8,3,10,8},{12,5,4,5},{6,3,7,14}};
+        // difference between K and Q
+        int M[][] = new int[Q.length][Q[0].length];
+        for (int i=0;i<Q.length;i++){
+            for(int j=0;j<Q[i].length;j++){
+                M[i][j] = K[i][j] - Q[i][j];
+            }
+        }
+        // print M
+        for (int i=0;i<M.length;i++){
+            for(int j=0;j<M[i].length;j++){
+                System.out.print(M[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
