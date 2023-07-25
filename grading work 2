@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class GradingSystemS {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Get input from user
+        System.out.print("Enter exam score: ");
+        int examScore = input.nextInt();
+        System.out.print("Enter assessment score: ");
+        int assessmentScore = input.nextInt();
+        System.out.print("Enter fee amount: ");
+        int fee = input.nextInt();
+
+        // Calculate total grade
+        int totalGrade = examScore + assessmentScore;
+
+        // Check if student passed both components
+        boolean passedExam = examScore >= 25;
+        boolean passedAssessment = assessmentScore >= 15;
+        boolean passedBoth = passedExam && passedAssessment;
+
+        // Check if student qualifies for certificate
+        boolean qualifiesForCertificate = false;
+        if (passedBoth) {
+            qualifiesForCertificate = true;
+        } else if (totalGrade == 39) {
+            qualifiesForCertificate = true;
+        }
+
+        // Check if student has paid fee
+        boolean hasPaidFee = fee == 100;
+
+        // Print results
+        switch (examScore >= 25 ? 1 : 0) {
+            case 1:
+                System.out.println("You passed the exam.");
+                break;
+            case 0:
+                System.out.println("You failed the exam.");
+                break;
+        }
+        switch (assessmentScore >= 15 ? 1 : 0) {
+            case 1:
+                System.out.println("You passed the assessment.");
+                break;
+            case 0:
+                System.out.println("You failed the assessment.");
+                break;
+        }
+
+        if (passedBoth && hasPaidFee) {
+            System.out.println("Congratulations, you have passed and have paid your fees. You qualify for a certificate.");
+        } else if (totalGrade == 39 && hasPaidFee) {
+            System.out.println("Congratulations, you have passed and have paid your fees. You qualify for a certificate.");
+        } else if (passedExam && hasPaidFee) {
+            System.out.println("Congratulations, you passed the your exam and have paid your fees.");
+        } else if (passedAssessment && hasPaidFee) {
+            System.out.println("Congratulations, you passed your assessment and have paid your fees.");
+        } else if (totalGrade == 39 && !hasPaidFee) {
+            System.out.println("You have passed but have not paid your fees. Please pay your fees to qualify for a certificate.");
+        } else if (passedBoth && !hasPaidFee) {
+            System.out.println("You have passed but have not paid your fees. Please pay your fees to qualify for a certificate.");
+        } else {
+            System.out.println("Sorry, you failed. You will need to repeat the exam.");
+        }
+    }
+}
+
+
