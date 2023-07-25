@@ -1,0 +1,54 @@
+JavaArray6.java
+public class JavaArray6 {
+    public static void main(String[] args){
+        int M[][] = {{2,2,2,2},{3,3,3,3},{4,4,4,4},{3,3,3,13}};
+        int Q[][] = {{2,0,3,5},{5,0,7,5},{8,1,0,1},{3,0,4,1}};
+        int K[][] = {{4,2,5,7},{8,3,10,8},{12,5,4,5},{6,3,7,14}};
+        // sum of Q and K
+        int SumKQ[][] = new int[Q.length][Q[0].length];
+        for (int i=0;i<Q.length;i++){
+            for(int j=0;j<Q[i].length;j++){
+                SumKQ[i][j] = K[i][j] + Q[i][j];
+            }
+        }
+        // print KQ
+        System.out.println("Sum of Q and K: ");
+        for (int i=0;i<SumKQ.length;i++){
+            for(int j=0;j<SumKQ[i].length;j++){
+                System.out.print(SumKQ[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+        // sum of M and SumKQ
+        int SumM[][] = new int[SumKQ.length][SumKQ[0].length];
+        for (int i=0;i<SumKQ.length;i++){
+            for(int j=0;j<SumKQ[i].length;j++){
+                SumM[i][j] = M[i][j] + SumKQ[i][j];
+            }
+        }
+        // print M
+        System.out.println("Sum of M and SumKQ: ");
+        for (int i=0;i<SumM.length;i++){
+            for(int j=0;j<SumM[i].length;j++){
+                System.out.print(SumM[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        // compare the sum of M and SumKQ
+        for (int i=0;i<SumM.length;i++){
+            for(int j=0;j<SumM[i].length;j++){
+                if(SumM[i][j]>SumKQ[i][j]){
+                    System.out.println("SumM["+i+"]["+j+"] is bigger than SumKQ["+i+"]["+j+"]");
+                }else if(SumM[i][j]<SumKQ[i][j]){
+                    System.out.println("SumM["+i+"]["+j+"] is smaller than SumKQ["+i+"]["+j+"]");
+                }else{
+                    System.out.println("SumM["+i+"]["+j+"] is equal to SumKQ["+i+"]["+j+"]");
+                }
+            }
+        }
+    }
+}
